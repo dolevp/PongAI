@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
     public Text startText;
     public Text countdownText;
     public GameObject startPanel;
-    public MoveBall moveBall;
+    public BallManager ballManager;
     public static bool hasStarted = false;
     public PausePanel pausePanel;
 
@@ -50,6 +50,6 @@ public class GameManager : MonoBehaviour {
         
         hasStarted = true;
 
-        moveBall.ResetBall();
+        ballManager.ResetBall();
     }
 }

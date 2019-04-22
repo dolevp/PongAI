@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MoveBall : MonoBehaviour {
+public class BallManager : MonoBehaviour {
 
     Vector3 ballStartPosition;
+    public GameObject ball; //current ball that's showing on the field
+    public GameObject ballPrefab;
     Rigidbody2D rb;
     float speed = 400;
     public AudioSource blip;
@@ -14,37 +16,30 @@ public class MoveBall : MonoBehaviour {
     public Text aiText;
     public int myScore = 0;
     public int aiScore = 0;
+    private TrailRenderer trail;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 
-        rb = GetComponent<Rigidbody2D>();
-        ballStartPosition = this.transform.position;
+
+        ballStartPosition = ball.transform.position;
+        Destroy(ball);
+        ball = (GameObject)Instantiate(ballPrefab, ballStartPosition, Quaternion.identity);
+        SetBallProperties();
         ResetBall();
+        
 	}
 
-    void OnCollisionEnter2D(Collision2D col)
+    /**
+     * Resets the ball's properties like rigidbody, trail after we change GameObject ball
+     */
+    void SetBallProperties()
     {
-        if (col.gameObject.tag == "backwall" )
-        {
-            blop.Play();
-            myScore++;
-            ResetBall();
-        }
-        else if (col.gameObject.tag == "justawall")
-        {
-            blop.Play();
-            aiScore++;
-            ResetBall();
-        }
-
-        else { 
-            blip.Play();
-        }
-       
-        SetScore();
+        rb = ball.GetComponent<Rigidbody2D>();
+        trail = ball.GetComponent<TrailRenderer>();
+        
     }
-
+    
     /**
      * Reset the ball's position and shoot it towards one of the 2 field sides
      */
@@ -52,8 +47,9 @@ public class MoveBall : MonoBehaviour {
     {
         if (GameManager.hasStarted)
         {
-           
-            this.transform.position = ballStartPosition;
+            Destroy(ball);
+            ball = (GameObject)Instantiate(ballPrefab, ballStartPosition, Quaternion.identity);
+            SetBallProperties();
             rb.velocity = Vector3.zero;
             int d = Random.Range(1, 3) == 1 ? 1 : -1;
             Vector3 dir = new Vector3(d * Random.Range(100, 300), Random.Range(-100, 100), 0).normalized;
@@ -74,7 +70,7 @@ public class MoveBall : MonoBehaviour {
     {
         myScore = aiScore = 0;
     }
-    void SetScore()
+    public void SetScore()
     {
         myText.text = myScore + ""; //using string and int concatenation instead of casting
         aiText.text = aiScore + ""; //same thing here
