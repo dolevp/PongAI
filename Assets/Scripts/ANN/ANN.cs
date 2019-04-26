@@ -177,7 +177,7 @@ public class ANN{
                     //calculate the error value
 					error = desiredOutput[j] - outputs[j];
 
-                    /*calculate the layer's error gradient using a mathematic gradient function
+                    /*calculate the neuron's error gradient using a mathematic gradient function
                      * we use this for the ANN's backpropagating approach
                      * notice how when error = 0, errorGradient = 0 as well
                      */

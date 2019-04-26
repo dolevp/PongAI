@@ -4,32 +4,32 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour {
 
-    private BallManager ballManager;
+    private BallScoreManager ballScoreManager;
 
     void Awake()
     {
-        ballManager = GameObject.Find("BallManager").GetComponent<BallManager>();
+        ballScoreManager = GameObject.Find("BallScoreManager").GetComponent<BallScoreManager>();
     }
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "backwall")
         {
-            ballManager.blop.Play();
-            ballManager.myScore++;
-            ballManager.ResetBall();
+            ballScoreManager.blop.Play();
+            ballScoreManager.myScore++;
+            ballScoreManager.ResetBall();
         }
         else if (col.gameObject.tag == "justawall")
         {
-            ballManager.blop.Play();
-            ballManager.aiScore++;
-            ballManager.ResetBall();
+            ballScoreManager.blop.Play();
+            ballScoreManager.aiScore++;
+            ballScoreManager.ResetBall();
         }
 
         else
         {
-            ballManager.blip.Play();
+            ballScoreManager.blip.Play();
         }
 
-        ballManager.SetScore();
+        ballScoreManager.SetScore();
     }
 }

@@ -8,9 +8,9 @@ public class GameManager : MonoBehaviour {
     public Text startText;
     public Text countdownText;
     public GameObject startPanel;
-    public BallManager ballManager;
     public static bool hasStarted = false;
     public PausePanel pausePanel;
+    public BallScoreManager bscoreManager;
 
 	// Use this for initialization
 	void Start () {
@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour {
         
         
         hasStarted = true;
+        bscoreManager.ResetBall();
 
-        ballManager.ResetBall();
     }
 }

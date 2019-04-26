@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BallManager : MonoBehaviour {
+public class BallScoreManager : MonoBehaviour {
 
     Vector3 ballStartPosition;
     public GameObject ball; //current ball that's showing on the field
@@ -17,18 +17,30 @@ public class BallManager : MonoBehaviour {
     public int myScore = 0;
     public int aiScore = 0;
     private TrailRenderer trail;
+    public int maxScore;
 
+    //Specific, winner-dependable panels
+    public GameObject humanWonPanel;
+    public GameObject aiWonPanel;
+
+    public enum Player
+    {
+        Human,
+        AI
+    }
 	// Use this for initialization
 	void Awake () {
-
-
         ballStartPosition = ball.transform.position;
         Destroy(ball);
         ball = (GameObject)Instantiate(ballPrefab, ballStartPosition, Quaternion.identity);
         SetBallProperties();
-        ResetBall();
-        
+        aiWonPanel.SetActive(false);
+        humanWonPanel.SetActive(false);
+
+        //Get the max score from PlayerPrefs
+        maxScore = PlayerPrefs.GetInt("MaxScore");
 	}
+
 
     /**
      * Resets the ball's properties like rigidbody, trail after we change GameObject ball
@@ -51,6 +63,8 @@ public class BallManager : MonoBehaviour {
             ball = (GameObject)Instantiate(ballPrefab, ballStartPosition, Quaternion.identity);
             SetBallProperties();
             rb.velocity = Vector3.zero;
+
+            //Shoot ball to random direction
             int d = Random.Range(1, 3) == 1 ? 1 : -1;
             Vector3 dir = new Vector3(d * Random.Range(100, 300), Random.Range(-100, 100), 0).normalized;
             rb.AddForce(dir * speed);
@@ -70,9 +84,35 @@ public class BallManager : MonoBehaviour {
     {
         myScore = aiScore = 0;
     }
+    void CheckVictoryStatus()
+    {
+        if(myScore >= maxScore)
+        {
+            AnnounceWinner(Player.Human);
+            
+        }
+        else if (aiScore >= maxScore)
+        {
+            AnnounceWinner(Player.AI);
+        }
+    }
+
+    void AnnounceWinner(Player winner)
+    {
+        if(winner == Player.Human) //human player won
+        {
+            humanWonPanel.SetActive(true);
+        }
+        else //ai won
+        {
+            aiWonPanel.SetActive(true);
+        }
+    }
     public void SetScore()
     {
         myText.text = myScore + ""; //using string and int concatenation instead of casting
         aiText.text = aiScore + ""; //same thing here
+        if(maxScore > 0) //infinite game, no need to check victory status
+            CheckVictoryStatus();
     }
 }

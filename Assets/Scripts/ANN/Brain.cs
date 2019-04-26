@@ -7,7 +7,7 @@ public class Brain : MonoBehaviour {
    
     public GameObject paddle;
     public GameObject ball;
-    public BallManager ballManager;
+    public BallScoreManager ballScoreManager;
     Rigidbody2D brb;
     float distY;
     public string backwallTag = "backwall";
@@ -22,7 +22,7 @@ public class Brain : MonoBehaviour {
 	void Start (){
 
         ann = new ANN(6, 1, 2, 5, alpha);
-        ballManager = GameObject.Find("BallManager").GetComponent<BallManager>();
+        ballScoreManager = GameObject.Find("BallScoreManager").GetComponent<BallScoreManager>();
         brb = ball.GetComponent<Rigidbody2D>();
         
 	}
@@ -62,7 +62,7 @@ public class Brain : MonoBehaviour {
         if(ball == null) /*when resetting the ball, we destroy the old one and spawn a new one in MoveBall,
                          so we have to make sure that we always refer to the new ball*/
         {
-            ball = ballManager.ball;
+            ball = ballScoreManager.ball;
             brb = ball.GetComponent<Rigidbody2D>();
         }
 
