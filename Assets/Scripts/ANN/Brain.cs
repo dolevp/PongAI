@@ -53,7 +53,7 @@ public class Brain : MonoBehaviour {
         if (train)
             return (ann.Train(inputs, outputs));
         else
-            return (ann.CalcOutput(inputs, outputs));
+            return (ann.CalcOutput(inputs));
     }
 
     //Update is called once per frame

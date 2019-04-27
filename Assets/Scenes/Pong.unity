@@ -2073,6 +2073,7 @@ GameObject:
   m_Component:
   - component: {fileID: 827071428}
   - component: {fileID: 827071429}
+  - component: {fileID: 827071430}
   m_Layer: 9
   m_Name: RoundedCollider (1)
   m_TagString: boundary
@@ -2119,6 +2120,26 @@ EdgeCollider2D:
   - {x: -7.3054457, y: -7.704385}
   - {x: -7.4226456, y: -7.1761465}
   - {x: -7.4248075, y: -6.807886}
+--- !u!50 &827071430
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 827071427}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &914135968
 GameObject:
   m_ObjectHideFlags: 0
@@ -2797,6 +2818,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1153089932}
   - component: {fileID: 1153089933}
+  - component: {fileID: 1153089934}
   m_Layer: 9
   m_Name: RoundedCollider (3)
   m_TagString: boundary
@@ -2843,6 +2865,26 @@ EdgeCollider2D:
   - {x: -7.3054457, y: -7.704385}
   - {x: -7.4226456, y: -7.1761465}
   - {x: -7.4248075, y: -6.807886}
+--- !u!50 &1153089934
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1153089931}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1258446005
 GameObject:
   m_ObjectHideFlags: 0
@@ -3438,6 +3480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1794285045}
   - component: {fileID: 1794285046}
+  - component: {fileID: 1794285047}
   m_Layer: 9
   m_Name: RoundedCollider (2)
   m_TagString: boundary
@@ -3484,6 +3527,26 @@ EdgeCollider2D:
   - {x: -7.3054457, y: -7.704385}
   - {x: -7.4226456, y: -7.1761465}
   - {x: -7.4248075, y: -6.807886}
+--- !u!50 &1794285047
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1794285044}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1820209289
 GameObject:
   m_ObjectHideFlags: 0
@@ -4035,6 +4098,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1998176488}
   - component: {fileID: 1998176489}
+  - component: {fileID: 1998176490}
   m_Layer: 9
   m_Name: RoundedCollider
   m_TagString: boundary
@@ -4081,6 +4145,26 @@ EdgeCollider2D:
   - {x: -7.3054457, y: -7.704385}
   - {x: -7.4226456, y: -7.1761465}
   - {x: -7.4248075, y: -6.807886}
+--- !u!50 &1998176490
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1998176487}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2030981568
 GameObject:
   m_ObjectHideFlags: 0

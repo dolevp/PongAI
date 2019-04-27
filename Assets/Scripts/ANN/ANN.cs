@@ -56,19 +56,18 @@ public class ANN{
 	public List<double> Train(List<double> inputValues, List<double> desiredOutput)
 	{
 		List<double> outputValues = new List<double>();
-		outputValues = CalcOutput(inputValues, desiredOutput);
+		outputValues = CalcOutput(inputValues);
 		UpdateWeights(outputValues, desiredOutput);
 		return outputValues;
 	}
 
     /**
      * Calculate and return a list representing the outputs of the ANN
-     * from given input values
+     * for the given input values
      * @param inputValues - the given input values
-     * @param desiredOutput - the correct output (we want the actual output to be as close as possible)
      * @return the output of the ANN
      * */
-	public List<double> CalcOutput(List<double> inputValues, List<double> desiredOutput)
+	public List<double> CalcOutput(List<double> inputValues)
 	{
 		List<double> inputs = new List<double>();
 		List<double> outputValues = new List<double>();
