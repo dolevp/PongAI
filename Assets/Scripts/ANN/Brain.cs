@@ -12,9 +12,7 @@ public class Brain : MonoBehaviour {
     float distY;
     public string backwallTag = "backwall";
     float paddleMaxSpeed = 15;
-    public float numSaved = 0;
-    public float numMissed = 0;
-    public double alpha = 0.83;
+    public double alpha = 0.1;
 
     ANN ann; //the ANN this Brain is using - the core of this whole script
 

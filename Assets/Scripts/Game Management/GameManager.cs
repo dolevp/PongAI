@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
-    public Text startText;
     public Text countdownText;
     public GameObject startPanel;
     public static bool hasStarted = false;

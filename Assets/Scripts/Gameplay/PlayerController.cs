@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour {
     
     public float speed;
     float targetY;
-    int r, g, b = 125;
 
     //initialization
     void Start()
